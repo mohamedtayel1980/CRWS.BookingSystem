@@ -9,6 +9,6 @@ namespace Domain.Repositories
     public interface IResource
     {
         IResourceQuery ResourceQuery { get; }
-        IResourceCommand ResourceCommand { get; }
+        IResourceCommandRepositry ResourceCommand { get; }
     }
 }

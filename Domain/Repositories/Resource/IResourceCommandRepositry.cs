@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Repositories
 {
-    public interface IResourceCommand : 
+    public interface IResourceCommandRepositry : 
         ICommandRepositry<Resource>
     {
-
+        public (int id, bool sccuess, string message) SaveBooking(Booking booking);
     }
 }
