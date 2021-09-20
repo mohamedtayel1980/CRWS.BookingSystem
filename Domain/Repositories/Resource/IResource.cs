@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Repositories
 {
-    public interface IResource
+    public interface IResourceRepoManager
     {
-        IResourceQuery ResourceQuery { get; }
-        IResourceCommandRepositry ResourceCommand { get; }
+        IResourceQueryRepositry ResourceQueryRepositry { get; }
+        IResourceCommandRepositry ResourceCommandRepositry { get; }
     }
 }

@@ -11,16 +11,18 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class ResourceCommandService : IResourceCommandService
+    internal sealed class ResourceCommandService : IResourceCommandService
     {
         private readonly IRepositoryManager _repositoryManager;
-        public ResourceCommandService(IRepositoryManager repositoryManager)=> _repositoryManager = repositoryManager;
-        public (bool sccuess, string message) Delete(ResourceDto resourceDto)
+        public ResourceCommandService(IRepositoryManager repositoryManager)=>
+            _repositoryManager = repositoryManager;
+        public Result Delete(ResourceDto resourceDto)
         {
-            throw new NotImplementedException();
+            var resource = resourceDto.Adapt<Resource>();
+          return  _repositoryManager.Resource.ResourceCommand.Delete(resource);
         }
 
-        public (int id, bool sccuess, string message) Save(ResourceDto resourceDto)
+        public Result Save(ResourceDto resourceDto)
         {
             throw new NotImplementedException();
             //var resource= resourceDto.Adapt<Resource>();

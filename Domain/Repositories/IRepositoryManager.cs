@@ -2,6 +2,6 @@
 {
     public interface IRepositoryManager
     {
-        IResource Resource { get; }
+        IResourceRepoManager ResourceRepoManager { get; }
     }
 }

@@ -5,26 +5,47 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Contracts;
 
 namespace Persistence.Repositories.ResourcesRepo
 {
-    public class ResourceCommandRepo : IResourceCommandRepositry
+    internal sealed class ResourceCommandRepo : IResourceCommandRepositry
     {
         private readonly RepositoryDbContext _dbContext;
         public ResourceCommandRepo(RepositoryDbContext dbContext) => _dbContext = dbContext;
-        public (bool sccuess, string message) Delete(Resource t)
+
+        public Result Delete(Resource t)
         {
             throw new NotImplementedException();
         }
 
-        public (int id, bool sccuess, string message) Save(Resource t)
+        public Result Save(Resource resource)
         {
-            _dbContext.Resources.Add(t);
 
-            var resourceId = _dbContext.SaveChanges();
+            _dbContext.Resources.Add(resource);
+            var result = new Result
+            {
+                objectId = _dbContext.SaveChanges(),
+                message = $"Resource  saved sccuessfuly",
+                status = true
+            };
 
+            return result;
+        }
 
-            return (resourceId, true, "Resource Saved ");
+        public Result SaveBooking(Booking booking)
+        {
+           //TODO:Add validation
+
+            _dbContext.Bookings.Add(booking);
+            var result = new Result
+            {
+                objectId = _dbContext.SaveChanges(),
+                message = $"Resource  saved sccuessfuly",
+                status = true
+            };
+
+            return result;
         }
     }
 }

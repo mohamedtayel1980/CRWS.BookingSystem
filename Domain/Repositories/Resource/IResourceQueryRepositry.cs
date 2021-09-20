@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Repositories
 {
-    public interface IResourceQuery : 
+    public interface IResourceQueryRepositry : 
         IQueryRepositry<Resource>
     {
+        IEnumerable<Booking> GetAllResourceBookingDates(int id);
     }
 }

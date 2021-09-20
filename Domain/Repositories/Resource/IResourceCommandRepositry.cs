@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Contracts;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,6 @@ namespace Domain.Repositories
     public interface IResourceCommandRepositry : 
         ICommandRepositry<Resource>
     {
-        public (int id, bool sccuess, string message) SaveBooking(Booking booking);
+        public Result SaveBooking(Booking booking);
     }
 }
