@@ -8,6 +8,6 @@ namespace Services.Abstractions
 {
     public interface IServiceManager
     {
-        IResourceService ResourceService { get; }
+        IResourceServiceManager ResourceService { get; }
     }
 }

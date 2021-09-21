@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Services.Abstractions
 {
-   public interface IResourceService
+   public interface IResourceServiceManager
     {
         IResourceQueryService   ResourceQueryService { get; }
         IResourceCommandService ResourceCommandService { get; }
