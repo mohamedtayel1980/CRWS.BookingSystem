@@ -1,4 +1,6 @@
 ﻿using Contracts;
+using Domain.Repositories;
+using Mapster;
 using Persistence;
 using Services.Abstractions;
 using System;
@@ -11,13 +13,18 @@ namespace Services
 {
     internal sealed class ResourceQueryService : IResourceQueryService
     {
-        private readonly RepositoryDbContext _dbContext;
+        private readonly IRepositoryManager _repositoryManager;
 
-        public ResourceQueryService(RepositoryDbContext dbContext) => _dbContext = dbContext;
+        public ResourceQueryService(IRepositoryManager repositoryManager) =>
+            _repositoryManager = repositoryManager;
 
         public IEnumerable<ResourceDto> GetAllResources()
         {
-            return _dbContext.Resources.ToList();
+           var resources=
+                _repositoryManager.ResourceRepoManager.ResourceQueryRepositry.GetAll;
+            var resourcesDto = resources.Adapt<IEnumerable<ResourceDto>>();
+
+            return resourcesDto;
         }
 
         public ResourceDto GetResource(int id)

@@ -19,7 +19,8 @@ namespace Services
         public Result Delete(ResourceDto resourceDto)
         {
             var resource = resourceDto.Adapt<Resource>();
-          return  _repositoryManager.Resource.ResourceCommand.Delete(resource);
+          return  _repositoryManager.ResourceRepoManager.
+                ResourceCommandRepositry.Delete(resource);
         }
 
         public Result Save(ResourceDto resourceDto)

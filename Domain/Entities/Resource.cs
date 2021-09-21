@@ -11,5 +11,6 @@ namespace Domain.Entities
      
         public string Name { get; set; }
         public int Quantity { get; set; }
+        public IQueryable<Booking> Bookings { get; set; }
     }
 }
